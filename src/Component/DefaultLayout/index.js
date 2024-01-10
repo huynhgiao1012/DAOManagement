@@ -22,6 +22,7 @@ import "../../style/dark.scss";
 import { useContext } from "react";
 import { DarkModeContext } from "../../context/darkModeContext";
 import GarageFeedback from "../../Pages/Manager/GarageFeedback/GarageFeedback";
+import LoginComponent from "../../Pages/Login";
 const DefaultLayoutComponent = ({ socket }) => {
   const { i18n } = useTranslation();
   const { darkMode } = useContext(DarkModeContext);
@@ -37,9 +38,7 @@ const DefaultLayoutComponent = ({ socket }) => {
   return (
     <div className={darkMode ? "app dark" : "app"}>
       <Routes>
-        <Route exact path="/" element={<Home />} />
-        <Route exact path="/home" element={<Home />} />
-        <Route exact path="/mHome" element={<MyProfile />} />
+        <Route exact path="/login" element={<LoginComponent />} />
         <Route path="mechanic">
           <Route index element={<Mechanic socket={socket} />} />
         </Route>
