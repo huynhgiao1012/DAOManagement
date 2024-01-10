@@ -1,0 +1,92 @@
+.datatable {
+  padding: 20px;
+}
+.datatable .addButton {
+  padding: 2px 5px;
+  border-radius: 5px;
+  background-color: #34acaf;
+  cursor: pointer;
+  border: none;
+}
+.datatable .datatableTitle {
+  width: 100%;
+  font-size: 24px;
+  color: gray;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.datatable .datatableTitle .link {
+  text-decoration: none;
+  color: green;
+  font-size: 16px;
+  font-weight: 400;
+  border: 1px solid green;
+  padding: 5px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.datatable .datagrid .MuiDataGrid-columnHeader {
+  background-color: #999999;
+  border: 1px solid white;
+}
+.datatable .datagrid .MuiDataGrid-columnHeaderTitle {
+  font-weight: bold;
+  color: white;
+  text-align: center;
+}
+.datatable .datagrid .MuiDataGrid-cell {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-bottom: 1px solid #d6d6d6;
+  border-right: 1px solid #d6d6d6;
+}
+.datatable .cellImg {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+.datatable .action {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.datatable .action .viewButton {
+  padding: 2px 8px;
+  border-radius: 5px;
+  color: white;
+  background-color: #196462;
+  cursor: pointer;
+  margin-right: 10px;
+}
+.datatable .action .editButton {
+  padding: 2px 8px;
+  border-radius: 5px;
+  color: white;
+  background-color: #34acaf;
+  cursor: pointer;
+  margin-right: 10px;
+}
+.datatable .newAction {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.datatable .newAction .viewSubButton {
+  padding: 2px 8px;
+  border-radius: 5px;
+  color: white;
+  background-color: #196462;
+  cursor: pointer;
+  margin-right: 10px;
+}
+.datatable .newAction .viewAddButton {
+  padding: 2px 8px;
+  border-radius: 5px;
+  color: white;
+  background-color: #34acaf;
+  cursor: pointer;
+  margin-right: 10px;
+}/*# sourceMappingURL=style3.css.map */

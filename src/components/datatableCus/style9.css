@@ -1,0 +1,91 @@
+.datatable {
+  height: 600px;
+  padding: 20px;
+}
+.datatable .addButton {
+  padding: 2px 5px;
+  border-radius: 5px;
+  background-color: #34acaf;
+  cursor: pointer;
+  border: none;
+}
+.datatable .datatableTitle {
+  width: 100%;
+  font-size: 24px;
+  color: gray;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.datatable .datatableTitle .link {
+  text-decoration: none;
+  color: green;
+  font-size: 16px;
+  font-weight: 400;
+  border: 1px solid green;
+  padding: 5px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.datatable .datagrid .MuiDataGrid-columnHeader {
+  background-color: #999999;
+  border: 1px solid white;
+}
+.datatable .datagrid .MuiDataGrid-columnHeaderTitle {
+  font-weight: bold;
+  color: white;
+  text-align: center;
+}
+.datatable .datagrid .MuiDataGrid-cell {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-bottom: 1px solid #d6d6d6;
+  border-right: 1px solid #d6d6d6;
+}
+.datatable .cellImg {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+.datatable .cellWithStatus {
+  padding: 5px;
+  border-radius: 5px;
+}
+.datatable .cellWithStatus.available {
+  background-color: rgba(0, 128, 0, 0.05);
+  color: green;
+}
+.datatable .cellWithStatus.unavailable {
+  background-color: rgba(255, 0, 0, 0.05);
+  color: crimson;
+}
+.datatable .cellAction {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.datatable .cellAction .viewButton {
+  padding: 2px 8px;
+  border-radius: 5px;
+  border: none;
+  color: white;
+  background-color: #34acaf;
+  cursor: pointer;
+}
+.datatable .cellAction .deleteButton {
+  padding: 2px 8px;
+  border-radius: 5px;
+  margin: 0px 10px;
+  color: red;
+  border: 1px dotted rgba(220, 20, 60, 0.6);
+  cursor: pointer;
+}
+.datatable .cellAction .editButton {
+  padding: 2px 8px;
+  border-radius: 5px;
+  color: #34acaf;
+  border: 1px dotted rgba(20, 180, 220, 0.508);
+  cursor: pointer;
+}/*# sourceMappingURL=style9.css.map */

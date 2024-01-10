@@ -1,0 +1,40 @@
+.animationText {
+  padding-top: 11px;
+  color: hsl(184, 91%, 44%);
+  font-size: 30px !important;
+  font-weight: bold !important;
+  font-family: monospace;
+  font-style: oblique;
+  letter-spacing: 3px !important;
+  cursor: pointer;
+  text-transform: uppercase;
+  margin-top: -70px;
+}
+
+.animationText {
+  background: linear-gradient(to right, hsl(184, 91%, 44%) 0, hsl(0, 0%, 100%) 10%, hsl(184, 91%, 44%) 20%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shine 4s infinite linear;
+}
+
+@keyframes shine {
+  0% {
+    background-position: 0;
+  }
+  60% {
+    background-position: 600px;
+  }
+  100% {
+    background-position: 2000px;
+  }
+}
+#email,
+#password {
+  background-color: white;
+  border: none;
+  color: #196462;
+  height: 10px;
+  font-weight: 700;
+  border-radius: 5px;
+}/*# sourceMappingURL=login.css.map */

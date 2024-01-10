@@ -1,0 +1,94 @@
+.datatable {
+  height: 600px;
+  padding: 20px;
+
+  .datatableTitle {
+    width: 100%;
+    font-size: 24px;
+    color: gray;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    .addButton {
+      padding: 2px 5px;
+      border-radius: 5px;
+      background-color: #34acaf;
+      cursor: pointer;
+      border: none;
+    }
+    .search-input {
+      background-color: white;
+      color: black;
+      width: 400px;
+      padding: 5px 15px;
+      font-size: 16px;
+      font-weight: 600;
+      font-style: italic;
+      border: 1px solid #34acaf;
+      border-radius: 8px;
+      &:focus {
+        border: "None";
+      }
+    }
+  }
+  .datagrid {
+    .MuiDataGrid-columnHeader {
+      background-color: #999999;
+      border: 1px solid white;
+    }
+    .MuiDataGrid-columnHeaderTitle {
+      font-weight: bold;
+      color: white;
+      text-align: center;
+    }
+    .MuiDataGrid-cell {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-bottom: 1px solid #d6d6d6;
+      border-right: 1px solid #d6d6d6;
+    }
+  }
+  .cellImg {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+  }
+
+  .cellWithStatus {
+    padding: 5px;
+    border-radius: 5px;
+
+    &.available {
+      background-color: rgba(0, 128, 0, 0.05);
+      color: green;
+    }
+
+    &.unavailable {
+      background-color: rgba(255, 0, 0, 0.05);
+      color: crimson;
+    }
+  }
+  .mechanicAction {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    .viewButton {
+      padding: 2px 8px;
+      border-radius: 5px;
+      border: none;
+      margin-right: 8px;
+      color: white;
+      background-color: #34acaf;
+      cursor: pointer;
+    }
+    .deleteButton {
+      padding: 2px 8px;
+      border-radius: 5px;
+      color: red;
+      border: 1px dotted rgba(220, 20, 60, 0.6);
+      cursor: pointer;
+    }
+  }
+}

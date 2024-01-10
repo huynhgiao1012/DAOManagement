@@ -1,0 +1,16 @@
+.list .datagrid .MuiDataGrid-columnHeader {
+  background-color: #999999;
+  border: 1px solid white;
+}
+.list .datagrid .MuiDataGrid-columnHeaderTitle {
+  font-weight: bold;
+  color: white;
+  text-align: center;
+}
+.list .datagrid .MuiDataGrid-cell {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-bottom: 1px solid #d6d6d6;
+  border-right: 1px solid #d6d6d6;
+}/*# sourceMappingURL=autopart2.css.map */

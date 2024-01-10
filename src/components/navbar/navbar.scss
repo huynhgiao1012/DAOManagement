@@ -1,0 +1,76 @@
+.navbar {
+  height: 50px;
+  border-bottom: 0.5px solid rgb(231, 228, 228);
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+  color: #555;
+  overflow: hidden;
+
+  .wrapper {
+    width: 100%;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    .name {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      img {
+        width: 60px;
+        height: 60px;
+      }
+      h2 {
+        color: #3c3434;
+        font-weight: bolder;
+      }
+    }
+
+    .items {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      .btn {
+        background-color: #34acaf;
+        border: none;
+        color: white;
+        border-radius: 10px;
+        margin-left: 10px;
+      }
+      h2 {
+        padding-top: 11px;
+        color: hsl(184, 91%, 44%);
+        font-size: 20px !important;
+        font-weight: bold !important;
+        font-family: monospace;
+        letter-spacing: 3px !important;
+        cursor: pointer;
+        text-transform: uppercase;
+      }
+      h2 {
+        background: linear-gradient(
+          to right,
+          hsl(184, 91%, 44%) 0,
+          hsl(0, 0%, 100%) 10%,
+          hsl(184, 91%, 44%) 20%
+        );
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        animation: shine 5s infinite linear;
+      }
+
+      @keyframes shine {
+        0% {
+          background-position: 0;
+        }
+        60% {
+          background-position: 600px;
+        }
+        100% {
+          background-position: 800px;
+        }
+      }
+    }
+  }
+}
