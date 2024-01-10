@@ -3,7 +3,7 @@ import Defaultlayout from "./Component/DefaultLayout";
 import Login from "./Pages/Login";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import socketIO from "socket.io-client";
-const socket = socketIO.connect("http://localhost:3000");
+const socket = socketIO.connect("https://dao-applicationservice.onrender.com");
 function App() {
   return (
     <>
