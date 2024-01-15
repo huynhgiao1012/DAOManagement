@@ -243,7 +243,16 @@ export const formColumn = [
     flex: 1,
     headerAlign: "center",
     renderCell: (params) => {
-      return <div>{params.row.date.split("-").reverse().join("-")}</div>;
+      return (
+        <div>
+          {new Date(params.row.createdAt)
+            .toLocaleString("en-GB")
+            .split(", ")[0]
+            .split("/")
+            .reverse()
+            .join("-")}
+        </div>
+      );
     },
   },
   {
@@ -251,6 +260,17 @@ export const formColumn = [
     headerName: "Time",
     flex: 1,
     headerAlign: "center",
+    renderCell: (params) => {
+      return (
+        <div>
+          {
+            new Date(params.row.createdAt)
+              .toLocaleString("en-GB")
+              .split(", ")[1]
+          }
+        </div>
+      );
+    },
   },
 ];
 export const feedbackColumn = [
