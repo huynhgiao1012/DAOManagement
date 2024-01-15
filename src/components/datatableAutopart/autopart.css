@@ -54,6 +54,10 @@
   border-bottom: 1px solid #d6d6d6;
   border-right: 1px solid #d6d6d6;
 }
+.datatable .datagrid .MuiTablePagination-root p {
+  padding-top: 12px;
+  font-weight: 700;
+}
 .datatable .cellImg {
   width: 35px;
   height: 35px;

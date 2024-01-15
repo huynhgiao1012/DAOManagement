@@ -1,53 +1,58 @@
 .app.dark {
   background-color: #111;
-  color: white;
-
-  .chartGrid {
-    stroke: white;
-  }
-
-  .table {
-    background-color: #111;
-
-    .tableCell {
-      color: white;
-    }
-  }
-
-  .navbar {
+  h1 {
     color: white;
-    border-color: #333;
-
-    .search {
-      border-color: white;
+  }
+  .navbar {
+    .wrapper {
+      .name {
+        h2 {
+          color: white;
+        }
+      }
     }
   }
-
   .sidebar {
     background-color: #111;
     border-color: #333;
-
-    .top {
-      .avt {
-        border-radius: 50px;
-        border: 3px solid white;
-      }
-      .name {
-        color: white;
-      }
+    p {
+      color: white;
     }
-    hr {
-      border-color: #333;
-    }
-
     ul {
-      li {
-        &:hover {
-          background-color: #333;
-        }
+      .active {
+        li {
+          background-color: white;
+          color: #111;
+          &:hover {
+            background-color: #d8e5e5;
+          }
 
+          .icon {
+            font-size: 20px;
+            color: #3cbcc4;
+          }
+
+          span {
+            font-size: 16px;
+            font-weight: 600;
+            color: #3cbcc4;
+            margin-left: 10px;
+          }
+        }
+      }
+      li {
+        background-color: #3cbcc4;
+        &:hover {
+          background-color: #d8e5e5;
+          .icon {
+            color: black;
+          }
+          span {
+            color: black;
+          }
+        }
         .icon {
-          color: #3cbcc4;
+          color: white;
         }
         span {
           color: white;
@@ -59,13 +64,35 @@
   .datatable {
     .datagrid {
       color: white;
-      border: none;
-
+      border: 1px solid white;
+      .MuiDataGrid-columnHeader {
+        background-color: #3cbcc4;
+      }
+      .MuiDataGrid-columnHeaderTitle {
+        font-weight: bold;
+        color: white;
+        text-align: center;
+      }
+      .MuiTablePagination-root {
+        p {
+          color: white;
+          padding-top: 12px;
+        }
+        .MuiInputBase-root {
+          background-color: white;
+        }
+        .MuiTablePagination-actions {
+          svg {
+            background-color: white;
+          }
+        }
+      }
       .viewButton,
       .deleteButton,
       .cellWithStatus {
         color: white;
-        border: none;
+        background-color: #3cbcc4;
+        border: 1px solid #3cbcc4;
       }
     }
   }

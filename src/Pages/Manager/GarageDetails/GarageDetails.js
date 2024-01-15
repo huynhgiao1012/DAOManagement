@@ -116,7 +116,7 @@ const GarageDetails = ({ socket }) => {
   };
   const props = {
     name: "file",
-    action: `http://${IP}:3000/api/v1/manager/upload`,
+    action: `https://dao-applicationservice.onrender.com/api/v1/manager/upload`,
     headers: {
       authorization: "authorization-text",
     },
@@ -124,7 +124,7 @@ const GarageDetails = ({ socket }) => {
       if (info.file.status !== "uploading") {
       }
       if (info.file.status === "done") {
-        const base64 = await convertToBase64(info.file.originFileObj);
+        await convertToBase64(info.file.originFileObj);
       } else if (info.file.status === "error") {
         console.log(`${info.file.name} file upload failed.`);
       }
@@ -328,7 +328,13 @@ const GarageDetails = ({ socket }) => {
                 >
                   {data.img.map((val, index) => {
                     return (
-                      <img src={val} width="100%" height={280} key={index} />
+                      <img
+                        src={val}
+                        width="100%"
+                        height={280}
+                        key={index}
+                        alt="Error"
+                      />
                     );
                   })}
                 </Carousel>

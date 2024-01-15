@@ -40,8 +40,8 @@ const Sidebar = () => {
           <p className="title">MAIN</p>
           <NavLink
             to="/garaDetails"
-            style={{ textDecoration: "none" }}
-            className={({ isActive }) => (isActive ? "active" : "none")}
+            style={{ textDecoration: "None" }}
+            className={({ isActive }) => (isActive ? "active" : "None")}
           >
             <li>
               <StorefrontIcon className="icon" />
@@ -50,8 +50,8 @@ const Sidebar = () => {
           </NavLink>
           <NavLink
             to="/myProfile"
-            style={{ textDecoration: "none" }}
-            className={({ isActive }) => (isActive ? "active" : "none")}
+            style={{ textDecoration: "None" }}
+            className={({ isActive }) => (isActive ? "active" : "None")}
           >
             <li>
               <PersonOutlineIcon className="icon" />
@@ -61,8 +61,8 @@ const Sidebar = () => {
           <p className="title">STAFF MANAGEMENT</p>
           <NavLink
             to="/mechanic"
-            style={{ textDecoration: "none" }}
-            className={({ isActive }) => (isActive ? "active" : "none")}
+            style={{ textDecoration: "None" }}
+            className={({ isActive }) => (isActive ? "active" : "None")}
           >
             <li>
               <PersonOutlineIcon className="icon" />
@@ -71,8 +71,8 @@ const Sidebar = () => {
           </NavLink>
           <NavLink
             to="/accountant"
-            style={{ textDecoration: "none" }}
-            className={({ isActive }) => (isActive ? "active" : "none")}
+            style={{ textDecoration: "None" }}
+            className={({ isActive }) => (isActive ? "active" : "None")}
           >
             <li>
               <PersonOutlineIcon className="icon" />
@@ -82,8 +82,8 @@ const Sidebar = () => {
           <p className="title">GARAGE MANAGEMENT</p>
           <NavLink
             to="/garaServices"
-            style={{ textDecoration: "none" }}
-            className={({ isActive }) => (isActive ? "active" : "none")}
+            style={{ textDecoration: "None" }}
+            className={({ isActive }) => (isActive ? "active" : "None")}
           >
             <li>
               <CarRepairIcon className="icon" />
@@ -92,8 +92,8 @@ const Sidebar = () => {
           </NavLink>
           <NavLink
             to="/garaForms"
-            style={{ textDecoration: "none" }}
-            className={({ isActive }) => (isActive ? "active" : "none")}
+            style={{ textDecoration: "None" }}
+            className={({ isActive }) => (isActive ? "active" : "None")}
           >
             <li
               style={{
@@ -114,41 +114,28 @@ const Sidebar = () => {
                 <ListAltIcon className="icon" />
                 <span>Order-forms</span>
               </div>
-              {/* <div
-                style={{
-                  alignSelf: "flex-end",
-                }}
-              >
-                <span
-                  style={{
-                    width: 25,
-                    height: 25,
-
-                    backgroundColor: "red",
-                    borderRadius: 50,
-                    color: "white",
-                    fontWeight: "bold",
-                    fontSize: 14,
-                    display: "flex",
-                    justifyContent: "center",
-                    alignItems: "center",
-                  }}
-                >
-                  {num.length}
-                </span>
-              </div> */}
             </li>
           </NavLink>
           <NavLink
             to="/garaFeedback"
-            style={{ textDecoration: "none" }}
-            className={({ isActive }) => (isActive ? "active" : "none")}
+            style={{ textDecoration: "None" }}
+            className={({ isActive }) => (isActive ? "active" : "None")}
           >
             <li>
               <FeedbackIcon className="icon" />
               <span>Feedbacks</span>
             </li>
           </NavLink>
+          {/* <NavLink
+            to="/garaCustomer"
+            style={{ textDecoration: "None" }}
+            className={({ isActive }) => (isActive ? "active" : "None")}
+          >
+            <li>
+              <PersonOutlineIcon className="icon" />
+              <span>Customers</span>
+            </li>
+          </NavLink> */}
         </ul>
       </div>
       <div className="bottom">

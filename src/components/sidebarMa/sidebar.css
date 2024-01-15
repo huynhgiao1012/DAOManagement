@@ -10,6 +10,7 @@
   justify-content: center;
   background-color: #3cbcc4;
   padding: 10px 0px;
+  height: 50px;
 }
 .sidebar .top .name {
   font-size: 16px;
@@ -46,7 +47,7 @@
   color: white;
   margin-left: 10px;
 }
-.sidebar .center ul .none li {
+.sidebar .center ul .None li {
   display: flex;
   align-items: center;
   padding: 5px;
@@ -55,14 +56,14 @@
   margin: 8px 0px;
   cursor: pointer;
 }
-.sidebar .center ul .none li:hover {
+.sidebar .center ul .None li:hover {
   background-color: #f8f8f8;
 }
-.sidebar .center ul .none li .icon {
+.sidebar .center ul .None li .icon {
   font-size: 20px;
   color: #3cbcc4;
 }
-.sidebar .center ul .none li span {
+.sidebar .center ul .None li span {
   font-size: 16px;
   font-weight: 600;
   color: #3c3434;

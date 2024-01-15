@@ -9,6 +9,7 @@
     justify-content: center;
     background-color: #3cbcc4;
     padding: 10px 0px;
+    height: 50px;
     .name {
       font-size: 16px;
       font-weight: bold;
@@ -49,7 +50,7 @@
           }
         }
       }
-      .none {
+      .None {
         li {
           display: flex;
           align-items: center;

@@ -9,6 +9,7 @@
   align-items: center;
   justify-content: center;
   background-color: #3cbcc4;
+  height: 50px;
 }
 .sidebar .top .name {
   font-size: 16px;

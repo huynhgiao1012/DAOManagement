@@ -20,6 +20,7 @@ export const userColumns = [
               : "https://t4.ftcdn.net/jpg/03/59/58/91/360_F_359589186_JDLl8dIWoBNf1iqEkHxhUeeOulx0wOC5.jpg"
           }
           alt="avatar"
+          style={{ width: 40, height: 40 }}
         />
       );
     },
@@ -85,6 +86,7 @@ export const mechanicColumns = [
               : "https://t4.ftcdn.net/jpg/03/59/58/91/360_F_359589186_JDLl8dIWoBNf1iqEkHxhUeeOulx0wOC5.jpg"
           }
           alt="avatar"
+          style={{ width: 40, height: 40 }}
         />
       );
     },
@@ -152,6 +154,7 @@ export const accountantColumns = [
           className="cellImg"
           src="https://img.freepik.com/premium-vector/cute-boy-thinking-cartoon-avatar_138676-2439.jpg"
           alt="avatar"
+          style={{ width: 40, height: 40 }}
         />
       );
     },
@@ -399,6 +402,7 @@ export const managerColumn = [
               : "https://t4.ftcdn.net/jpg/03/59/58/91/360_F_359589186_JDLl8dIWoBNf1iqEkHxhUeeOulx0wOC5.jpg"
           }
           alt="avatar"
+          style={{ width: 40, height: 40 }}
         />
       );
     },
@@ -445,6 +449,7 @@ export const brandColumn = [
               : "https://t4.ftcdn.net/jpg/03/59/58/91/360_F_359589186_JDLl8dIWoBNf1iqEkHxhUeeOulx0wOC5.jpg"
           }
           alt="avatar"
+          style={{ width: 40, height: 40 }}
         />
       );
     },

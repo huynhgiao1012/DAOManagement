@@ -2,22 +2,26 @@ import "./style7.scss";
 import Sidebar from "../../../components/sidebarMa/Sidebar";
 import Navbar from "../../../components/navbar/Navbar";
 import {
+  useChangePasswordMutation,
   useGetUserDetailMutation,
   useUpdateInfoMutation,
 } from "../../../services/User";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { Button, Col, Row, Form, Input, Upload, Skeleton } from "antd";
+import { Button, Col, Row, Form, Input, Upload, Skeleton, Modal } from "antd";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import FileUploadIcon from "@mui/icons-material/FileUpload";
-import { IP } from "../../../Utils/constants";
 
 const MyProfile = ({ socket }) => {
   const navigate = useNavigate();
   const [getUserDetail, { isLoading }] = useGetUserDetailMutation();
   const [updateInfo] = useUpdateInfoMutation();
+  const [changePassword] = useChangePasswordMutation();
   const [form] = Form.useForm();
   const [image, setImage] = useState("");
+  const [oldPass, setOldPass] = useState("");
+  const [newPass, setNewPass] = useState("");
+  const [isVisible, setVisible] = useState(false);
   const [isUpdate, setUpdate] = useState(false);
   const [data, setData] = useState({
     _id: "",
@@ -63,6 +67,31 @@ const MyProfile = ({ socket }) => {
     setImage("");
     setUpdate(false);
   }, []);
+  const handleOk = () => {
+    if (oldPass.length === 0 || newPass.length === 0) {
+      alert("Please enter password");
+    } else {
+      changePassword({ oldPassword: oldPass, newPassword: newPass })
+        .unwrap()
+        .then((payload) => {
+          if (payload.success) {
+            alert("Your password has been changed");
+            setVisible(false);
+          }
+        })
+        .catch((error) => {
+          if (error) {
+            alert(error.data.message);
+          }
+          if (error.data.message === "Token is exprired") {
+            logOut();
+          }
+        });
+    }
+  };
+  const handleCancel = () => {
+    setVisible(false);
+  };
   const props = {
     name: "file",
     action: `https://dao-applicationservice.onrender.com/api/v1/manager/upload`,
@@ -105,6 +134,9 @@ const MyProfile = ({ socket }) => {
   const handleUpdate = () => {
     setUpdate(true);
   };
+  const handleChangePassword = () => {
+    setVisible(true);
+  };
   return (
     <div className="list">
       <Sidebar />
@@ -124,9 +156,18 @@ const MyProfile = ({ socket }) => {
                 <AccountCircleIcon style={{ color: "#34acaf" }} />
                 <h3>My Profile</h3>
               </div>
-              <Button className="right" onClick={handleUpdate}>
-                UPDATE
-              </Button>
+              <div>
+                <Button
+                  className="right"
+                  onClick={handleChangePassword}
+                  style={{ marginRight: 10 }}
+                >
+                  CHANGE PASSWORD
+                </Button>
+                <Button className="right" onClick={handleUpdate}>
+                  UPDATE
+                </Button>
+              </div>
             </div>
             <Row
               style={{
@@ -271,6 +312,54 @@ const MyProfile = ({ socket }) => {
             </Row>
           </div>
         )}
+        <Modal
+          title="Update Password"
+          visible={isVisible}
+          onOk={handleOk}
+          onCancel={handleCancel}
+        >
+          <Row
+            gutter={16}
+            style={{
+              margin: 20,
+            }}
+          >
+            <Col span={12}>
+              <h3 style={{ color: "#34acaf" }}>OLD PASSWORD</h3>
+              <Input
+                className="oldPass"
+                style={{
+                  border: "1px solid #D8E5E5",
+                  width: "90%",
+                  color: "#3C3434",
+                  borderRadius: 10,
+                  boxShadow: "rgba(0, 0, 0, 0.15) 2.4px 2.4px 3.2px",
+                  fontWeight: 700,
+                }}
+                onChange={(text) => {
+                  setOldPass(text.target.value);
+                }}
+              />
+            </Col>
+            <Col span={12}>
+              <h3 style={{ color: "#34acaf" }}>NEW PASSWORD</h3>
+              <Input
+                className="newPass"
+                style={{
+                  border: "1px solid #D8E5E5",
+                  width: "90%",
+                  color: "#3C3434",
+                  borderRadius: 10,
+                  boxShadow: "rgba(0, 0, 0, 0.15) 2.4px 2.4px 3.2px",
+                  fontWeight: 700,
+                }}
+                onChange={(text) => {
+                  setNewPass(text.target.value);
+                }}
+              />
+            </Col>
+          </Row>
+        </Modal>
       </div>
     </div>
   );

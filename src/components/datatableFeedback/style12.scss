@@ -45,6 +45,12 @@
       border-bottom: 1px solid #d6d6d6;
       border-right: 1px solid #d6d6d6;
     }
+    .MuiTablePagination-root {
+      p {
+        padding-top: 12px;
+        font-weight: 700;
+      }
+    }
   }
   .cellImg {
     width: 50px;

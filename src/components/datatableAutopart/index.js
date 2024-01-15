@@ -53,7 +53,7 @@ const Datatable = () => {
   };
   const props = {
     name: "file",
-    action: `http://${IP}:3000/api/v1/manager/upload`,
+    action: `https://dao-applicationservice.onrender.com/api/v1/manager/upload`,
     headers: {
       authorization: "authorization-text",
     },
