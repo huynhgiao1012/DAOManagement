@@ -31,15 +31,7 @@ function Copyright(props) {
 }
 // TODO remove, this demo shouldn't need to reset the theme.
 export default function ForgotPassword({ socket }) {
-  const [login] = useLoginMutation();
   const navigate = useNavigate();
-  // useEffect(() => {
-  //   localStorage.clear();
-  //   if (!localStorage.getItem("token")) {
-  //     navigate("/login");
-  //   }
-  //   window.history.forward();
-  // }, []);
   const handleSubmit = (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
