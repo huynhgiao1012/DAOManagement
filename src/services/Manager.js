@@ -48,6 +48,11 @@ export const managerApi = createApi({
         url: "/getAllForm",
       }),
     }),
+    getCustomer: builder.mutation({
+      query: () => ({
+        url: "/getCustomer",
+      }),
+    }),
     getAllFeedback: builder.mutation({
       query: () => ({
         url: "/getAllFeedback",
@@ -66,6 +71,11 @@ export const managerApi = createApi({
     getSubService: builder.mutation({
       query: ({ id }) => ({
         url: `/getSubService/${id}`,
+      }),
+    }),
+    getNumForm: builder.mutation({
+      query: ({ id }) => ({
+        url: `/getNumForm/${id}`,
       }),
     }),
     getGarageId: builder.mutation({
@@ -237,4 +247,6 @@ export const {
   useCheckAccountMutation,
   useDeleteFormMutation,
   useGetAllFeedbackMutation,
+  useGetCustomerMutation,
+  useGetNumFormMutation,
 } = managerApi;

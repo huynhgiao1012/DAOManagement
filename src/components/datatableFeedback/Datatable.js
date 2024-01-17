@@ -3,11 +3,7 @@ import { DataGrid } from "@mui/x-data-grid";
 import { feedbackColumn } from "../../datatablesource";
 import { Link, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
-import {
-  useCreateMechanicAccountMutation,
-  useDeleteMechanicMutation,
-  useGetAllFeedbackMutation,
-} from "../../services/Manager";
+import { useGetAllFeedbackMutation } from "../../services/Manager";
 import { Col, Form, Input, Row, Drawer } from "antd";
 import moment from "moment";
 

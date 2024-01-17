@@ -126,7 +126,7 @@ const Sidebar = () => {
               <span>Feedbacks</span>
             </li>
           </NavLink>
-          {/* <NavLink
+          <NavLink
             to="/garaCustomer"
             style={{ textDecoration: "None" }}
             className={({ isActive }) => (isActive ? "active" : "None")}
@@ -135,7 +135,7 @@ const Sidebar = () => {
               <PersonOutlineIcon className="icon" />
               <span>Customers</span>
             </li>
-          </NavLink> */}
+          </NavLink>
         </ul>
       </div>
       <div className="bottom">

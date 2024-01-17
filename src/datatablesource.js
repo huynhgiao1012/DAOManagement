@@ -60,6 +60,29 @@ export const userColumns = [
     },
   },
 ];
+export const userColumns2 = [
+  { field: "id", headerName: "ID", headerAlign: "center", flex: 1 },
+  {
+    field: "name",
+    headerName: "Name",
+    headerAlign: "center",
+    flex: 1,
+  },
+
+  {
+    field: "email",
+    headerName: "Email",
+    headerAlign: "center",
+    flex: 1,
+  },
+
+  {
+    field: "phone",
+    headerName: "Phone",
+    headerAlign: "center",
+    flex: 1,
+  },
+];
 export const mechanicColumns = [
   {
     field: "id",
