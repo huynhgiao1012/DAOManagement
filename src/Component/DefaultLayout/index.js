@@ -23,22 +23,24 @@ import { useContext } from "react";
 import { DarkModeContext } from "../../context/darkModeContext";
 import GarageFeedback from "../../Pages/Manager/GarageFeedback/GarageFeedback";
 import LoginComponent from "../../Pages/Login";
+import ForgotPassword from "../../Pages/ForgotPassword";
 const DefaultLayoutComponent = ({ socket }) => {
   const { i18n } = useTranslation();
   const { darkMode } = useContext(DarkModeContext);
   const navigate = useNavigate();
   useEffect(() => {
-    const token = localStorage.getItem("token");
-    if (!token) {
-      navigate("/login");
-    } else {
-      navigate(window.location.pathname);
-    }
+    // const token = localStorage.getItem("token");
+    // if (!token) {
+    //   navigate("/login");
+    // } else {
+    //   navigate(window.location.pathname);
+    // }
   }, []);
   return (
     <div className={darkMode ? "app dark" : "app"}>
       <Routes>
         <Route exact path="/login" element={<LoginComponent />} />
+        <Route exact path="/forgotPassword" element={<ForgotPassword />} />
         <Route path="mechanic">
           <Route index element={<Mechanic socket={socket} />} />
         </Route>
