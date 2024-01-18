@@ -7,6 +7,7 @@ import {
   useGetAllMechanicMutation,
   useCreateMechanicAccountMutation,
   useDeleteMechanicMutation,
+  useResetMePointMutation,
 } from "../../services/Manager";
 import { Col, Form, Input, Row, Drawer, Popconfirm, Radio } from "antd";
 import Box from "@mui/material/Box";
@@ -31,6 +32,7 @@ const Datatable = () => {
   const [getAllMechanic] = useGetAllMechanicMutation();
   const [createMechanicAccount] = useCreateMechanicAccountMutation();
   const [deleteMechanic] = useDeleteMechanicMutation();
+  const [resetMePoint] = useResetMePointMutation();
   const [isEdit, setIsEdit] = useState(false);
   const [form] = Form.useForm();
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -209,11 +211,27 @@ const Datatable = () => {
         });
     }
   };
+  const handleReset = (id) => {
+    console.log(id);
+    resetMePoint({ id: id })
+      .unwrap()
+      .then((payload) => {
+        if (payload.success) {
+          loadData();
+        }
+      })
+      .catch((error) => {
+        console.log(error);
+        if (error.status === 401) {
+          logOut();
+        }
+      });
+  };
   const actionColumn = [
     {
       field: "action",
       headerName: "Action",
-      flex: 1,
+      width: 300,
       headerAlign: "center",
       renderCell: (params) => {
         return (
@@ -231,6 +249,12 @@ const Datatable = () => {
             >
               <div className="deleteButton">Delete</div>
             </Popconfirm>
+            <div
+              className="viewButton"
+              onClick={() => handleReset(params.row.id)}
+            >
+              Reset Point
+            </div>
           </div>
         );
       },

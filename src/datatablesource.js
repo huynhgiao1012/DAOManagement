@@ -75,10 +75,21 @@ export const userColumns2 = [
     headerAlign: "center",
     flex: 1,
   },
-
   {
     field: "phone",
     headerName: "Phone",
+    headerAlign: "center",
+    flex: 1,
+  },
+  {
+    field: "point",
+    headerName: "Point",
+    headerAlign: "center",
+    flex: 1,
+  },
+  {
+    field: "isVip",
+    headerName: "Status",
     headerAlign: "center",
     flex: 1,
   },

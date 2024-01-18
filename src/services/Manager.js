@@ -123,6 +123,15 @@ export const managerApi = createApi({
         },
       }),
     }),
+    resetMePoint: builder.mutation({
+      query: ({ id }) => ({
+        url: `/resetMePoint/${id}`,
+        method: "POST",
+        headers: {
+          "Content-type": "application/json; charset=UTF-8",
+        },
+      }),
+    }),
     createMechanicAccount: builder.mutation({
       query: (payload) => ({
         url: `/createMechanicAccount`,
@@ -249,4 +258,5 @@ export const {
   useGetAllFeedbackMutation,
   useGetCustomerMutation,
   useGetNumFormMutation,
+  useResetMePointMutation,
 } = managerApi;

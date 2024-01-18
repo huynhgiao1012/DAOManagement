@@ -4,6 +4,7 @@ import Navbar from "../../../components/navbar/Navbar";
 import {
   useGetCustomerMutation,
   useGetNumFormMutation,
+  useUpdateIsVipMutation,
 } from "../../../services/Manager";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
@@ -13,7 +14,7 @@ import { DataGrid } from "@mui/x-data-grid";
 const GarageCustomer = ({ socket }) => {
   const navigate = useNavigate();
   const [getCustomer] = useGetCustomerMutation();
-  const [getNumForm] = useGetNumFormMutation();
+  const [updateVIP] = useUpdateIsVipMutation();
   const [data, setData] = useState([]);
   const [numForm, setNum] = useState([]);
   useEffect(() => {
@@ -24,10 +25,13 @@ const GarageCustomer = ({ socket }) => {
         var newArr = [];
         payload.data.map((val) => {
           newArr.push({
-            id: val._id,
-            name: val.name,
-            email: val.email,
-            phone: val.phone,
+            id: val._doc._id,
+            name: val._doc.name,
+            email: val._doc.email,
+            phone: val._doc.phone,
+            point: val.point,
+            isVip: val.isVip ? "VIP" : "Standard",
+            num: val.numForm,
           });
         });
         setData((prev) => [...prev, ...newArr]);
@@ -38,23 +42,42 @@ const GarageCustomer = ({ socket }) => {
         }
       });
   }, []);
-  useEffect(() => {
-    let arr = [];
-    data.map((val) => {
-      getNumForm({ id: val.id })
-        .unwrap()
-        .then((payload) => {
-          const obj = { id: val.id, numForm: payload.data.length };
-          arr.push(obj);
-          setNum((prev) => [...prev, ...arr]);
-        })
-        .catch((error) => {
-          if (error.status === 401) {
-            navigate("/login");
-          }
-        });
-    });
-  }, [data]);
+  const handleUpgrade = (id) => {
+    updateVIP({ id })
+      .unwrap()
+      .then((payload) => {
+        if (payload.success) {
+          setData([]);
+          getCustomer()
+            .unwrap()
+            .then((payload) => {
+              var newArr = [];
+              payload.data.map((val) => {
+                newArr.push({
+                  id: val._doc._id,
+                  name: val._doc.name,
+                  email: val._doc.email,
+                  phone: val._doc.phone,
+                  point: val.point,
+                  isVip: val.isVip ? "VIP" : "Standard",
+                  num: val.numForm,
+                });
+              });
+              setData((prev) => [...prev, ...newArr]);
+            })
+            .catch((error) => {
+              if (error.status === 401) {
+                navigate("/login");
+              }
+            });
+        }
+      })
+      .catch((error) => {
+        if (error.status === 401) {
+          navigate("/login");
+        }
+      });
+  };
   const actionColumn = [
     {
       field: "numOfUse",
@@ -62,9 +85,7 @@ const GarageCustomer = ({ socket }) => {
       flex: 1,
       headerAlign: "center",
       valueGetter: (params) => {
-        if (numForm.length > 0) {
-          return numForm.find((val) => val.id === params.row.id).numForm;
-        }
+        return params.row.num;
       },
     },
     {
@@ -75,7 +96,12 @@ const GarageCustomer = ({ socket }) => {
       renderCell: (params) => {
         return (
           <div className="cellAction">
-            <div className="viewButton">Upgraded VIP</div>
+            <div
+              className="viewButton"
+              onClick={() => handleUpgrade(params.row.id)}
+            >
+              Upgraded VIP
+            </div>
           </div>
         );
       },
