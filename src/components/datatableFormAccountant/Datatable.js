@@ -56,6 +56,8 @@ const Datatable = () => {
             time: val.time,
             isPaid: val.isPaid,
             isFeedback: val.isFeedback,
+            createdAt: val.createdAt,
+            customerName: val.customerName,
           });
         });
         setData((prev) => [...prev, ...newArr]);
@@ -73,7 +75,6 @@ const Datatable = () => {
   const cancelConfirm = (e) => {
     console.log(e);
   };
-
   const handleDone = async (id) => {
     await updateDone({ id: id })
       .unwrap()

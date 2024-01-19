@@ -20,7 +20,11 @@ import Alert from "@mui/material/Alert";
 import CalendarViewMonthIcon from "@mui/icons-material/CalendarViewMonth";
 import EditIcon from "@mui/icons-material/Edit";
 import DeleteIcon from "@mui/icons-material/Delete";
-// import { useCreateCompanyMutation } from "../../services/Company";
+import {
+  useDeleteServiceMutation,
+  useDeleteSubServiceMutation,
+} from "../../services/Service";
+
 const style = {
   position: "absolute",
   top: "50%",
@@ -42,6 +46,8 @@ const Datatable = () => {
   const [createSubService] = useCreateSubServiceMutation();
   const [updateService] = useUpdateServiceMutation();
   const [updateSubService] = useUpdateSubServiceMutation();
+  const [deleteService] = useDeleteServiceMutation();
+  const [deleteSubService] = useDeleteSubServiceMutation();
   const [isEdit, setIsEdit] = useState(false);
   const [isViewSub, setViewSub] = useState(false);
   const [form] = Form.useForm();
@@ -64,6 +70,7 @@ const Datatable = () => {
 
   const loadData = () => {
     setData([]);
+    setSubData([]);
     getAllService()
       .unwrap()
       .then((payload) => {
@@ -99,7 +106,9 @@ const Datatable = () => {
         setSubData((prev) => [...prev, ...newArr]);
       })
       .catch((error) => {
-        return error;
+        if (error.status === 401) {
+          logOut();
+        }
       });
   };
   useEffect(() => {
@@ -111,16 +120,36 @@ const Datatable = () => {
     console.log(e);
   };
   const handleDelete = async (id) => {
-    // await deleteMechanic({ id: id })
-    //   .unwrap()
-    //   .then((payload) => {
-    //     if (payload.success) {
-    //       <Alert severity="success">{payload.message}</Alert>;
-    //       loadData();
-    //     }
-    //   });
+    await deleteService({ id: id })
+      .unwrap()
+      .then((payload) => {
+        if (payload.success) {
+          alert(payload.message);
+          loadData();
+        }
+      })
+      .catch((error) => {
+        console.log(error);
+        if (error.status === 401) {
+          logOut();
+        }
+      });
   };
-  const handleDeleteSub = (id) => {};
+  const handleDeleteSub = async (id) => {
+    await deleteSubService({ id: id })
+      .unwrap()
+      .then((payload) => {
+        if (payload.success) {
+          alert(payload.message);
+          loadData2(serId);
+        }
+      })
+      .catch((error) => {
+        if (error.status === 401) {
+          logOut();
+        }
+      });
+  };
   const handleEdit = (id) => {
     handleOpen(id);
     setIsEdit(true);
@@ -154,6 +183,11 @@ const Datatable = () => {
             } else {
               alert("Update failed");
             }
+          })
+          .catch((error) => {
+            if (error.status === 401) {
+              logOut();
+            }
           });
       } else {
         await updateService({
@@ -171,6 +205,11 @@ const Datatable = () => {
             } else {
               alert("Update failed");
             }
+          })
+          .catch((error) => {
+            if (error.status === 401) {
+              logOut();
+            }
           });
       }
     } else if (isViewSub) {
@@ -184,9 +223,12 @@ const Datatable = () => {
           alert(payload.message);
           setIsModalOpen(false);
           setViewSub(false);
+          loadData2(serId);
         })
         .catch((error) => {
-          console.log(error);
+          if (error.status === 401) {
+            logOut();
+          }
         });
     } else {
       await createService({
@@ -200,7 +242,9 @@ const Datatable = () => {
           loadData();
         })
         .catch((error) => {
-          console.log(error);
+          if (error.status === 401) {
+            logOut();
+          }
         });
     }
   };
@@ -220,7 +264,9 @@ const Datatable = () => {
         setSubData((prev) => [...prev, ...newArr]);
       })
       .catch((error) => {
-        return error;
+        if (error.status === 401) {
+          logOut();
+        }
       });
   };
   const handleAddSub = (id) => {
@@ -350,54 +396,62 @@ const Datatable = () => {
           </p>
         </div>
       </div>
-      {/* <Table
-        columns={mechanicColumns.concat(actionColumn)}
-        dataSource={data}
-        style={{ width: "100%" }}
-      /> */}
       <div
         style={{
           display: "flex",
           width: "100%",
           height: "100%",
           justifyContent: "center",
-          alignItems: "center",
+          alignItems: "flex-start",
         }}
       >
-        <DataGrid
-          className="datagrid"
-          rows={data}
-          columns={serviceColumns.concat(actionColumn)}
-          pageSize={9}
-          rowsPerPageOptions={[9]}
-          autosizing
-          disableVirtualization
-          rowSelection={false}
-          sx={{
-            width: "70%",
-            boxShadow: 2,
-            border: 2,
-            borderColor: "white",
-            marginRight: "10px",
-          }}
-        />
-        <DataGrid
-          className="datagrid"
-          rows={subData}
-          columns={serviceColumns2.concat(actionColumn2)}
-          pageSize={9}
-          rowsPerPageOptions={[9]}
-          autosizing
-          disableVirtualization
-          rowSelection={false}
-          sx={{
-            width: "30%",
-            height: "50%",
-            boxShadow: 2,
-            border: 2,
-            borderColor: "white",
-          }}
-        />
+        <div style={{ width: "60%", marginRight: 10, height: "90%" }}>
+          <h2
+            style={{ color: "black", fontStyle: "oblique", fontWeight: "bold" }}
+          >
+            Service List
+          </h2>
+          <DataGrid
+            className="datagrid"
+            rows={data}
+            columns={serviceColumns.concat(actionColumn)}
+            pageSize={9}
+            rowsPerPageOptions={[9]}
+            autosizing
+            disableVirtualization
+            rowSelection={false}
+            sx={{
+              width: "100%",
+              boxShadow: 2,
+              border: 2,
+              borderColor: "white",
+              marginRight: "10px",
+            }}
+          />
+        </div>
+        <div style={{ width: "40%", height: "90%" }}>
+          <h2
+            style={{ color: "black", fontStyle: "oblique", fontWeight: "bold" }}
+          >
+            Sub-Services List
+          </h2>
+          <DataGrid
+            className="datagrid"
+            rows={subData}
+            columns={serviceColumns2.concat(actionColumn2)}
+            pageSize={9}
+            rowsPerPageOptions={[9]}
+            autosizing
+            disableVirtualization
+            rowSelection={false}
+            sx={{
+              width: "100%",
+              boxShadow: 2,
+              border: 2,
+              borderColor: "white",
+            }}
+          />
+        </div>
       </div>
       <div>
         <Modal

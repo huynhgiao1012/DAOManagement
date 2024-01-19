@@ -279,12 +279,11 @@ export const formColumn = [
     renderCell: (params) => {
       return (
         <div>
-          {new Date(params.row.createdAt)
-            .toLocaleString("en-GB")
-            .split(", ")[0]
-            .split("/")
-            .reverse()
-            .join("-")}
+          {
+            new Date(params.row.createdAt)
+              .toLocaleString("en-GB")
+              .split(", ")[0]
+          }
         </div>
       );
     },

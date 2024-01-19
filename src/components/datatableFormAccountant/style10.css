@@ -64,12 +64,12 @@
   background-color: rgba(255, 0, 0, 0.05);
   color: crimson;
 }
-.datatable .cellAction {
+.datatable .ActionCol {
   display: flex;
   justify-content: center;
   align-items: center;
 }
-.datatable .cellAction .viewButton {
+.datatable .ActionCol .viewButton {
   padding: 2px 8px;
   border-radius: 5px;
   border: none;
@@ -77,15 +77,15 @@
   background-color: #34acaf;
   cursor: pointer;
 }
-.datatable .cellAction .deleteButton {
+.datatable .ActionCol .deleteButton {
   padding: 2px 8px;
   border-radius: 5px;
   margin: 0px 10px;
-  color: white;
+  color: red;
   border: 1px dotted rgba(220, 20, 60, 0.6);
   cursor: pointer;
 }
-.datatable .cellAction .editButton {
+.datatable .ActionCol .editButton {
   padding: 2px 8px;
   border-radius: 5px;
   color: #34acaf;

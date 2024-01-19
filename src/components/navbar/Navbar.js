@@ -227,10 +227,11 @@ const Navbar = ({ socket }) => {
                           display: "flex",
                           justifyContent: "space-around",
                           alignItems: "center",
-                          width: 400,
+                          width: 450,
                           padding: "10px 0px",
                           margin: "0px 20px",
-                          borderBottom: "3px solid #e8e8e8",
+                          borderBottom:
+                            listNoti.length > 1 ? "3px solid #e8e8e8" : "None",
                         }}
                       >
                         <div>
@@ -243,7 +244,7 @@ const Navbar = ({ socket }) => {
                           >
                             {val.text}
                           </h4>
-                          <h6
+                          <h5
                             style={{
                               width: "70%",
                               color: "#34acaf",
@@ -262,9 +263,9 @@ const Navbar = ({ socket }) => {
                                   .toLocaleString("en-GB")
                                   .split(", ")[1]
                             ).fromNow()}
-                          </h6>
+                          </h5>
                         </div>
-                        <div style={{ width: "30%" }}>
+                        <div style={{ width: 100, display: "flex" }}>
                           <button
                             onClick={() => {
                               handleRead(val._id);
@@ -273,14 +274,19 @@ const Navbar = ({ socket }) => {
                               border: "none",
                               backgroundColor: "#3cbcc4",
                               color: "white",
-                              borderRadius: 10,
+                              borderRadius: 5,
                               fontSize: 16,
-                              paddingTop: 5,
-                              width: "40%",
                               marginRight: 8,
+                              padding: 8,
                             }}
                           >
-                            <DraftsIcon />
+                            <DraftsIcon
+                              style={{
+                                display: "flex",
+                                justifyContent: "center",
+                                alignItems: "center",
+                              }}
+                            />
                           </button>
                           <button
                             onClick={() => {
@@ -290,13 +296,18 @@ const Navbar = ({ socket }) => {
                               border: "none",
                               backgroundColor: "red",
                               color: "white",
-                              borderRadius: 10,
+                              borderRadius: 5,
                               fontSize: 16,
-                              paddingTop: 5,
-                              width: "40%",
+                              padding: 8,
                             }}
                           >
-                            <DeleteForeverIcon />
+                            <DeleteForeverIcon
+                              style={{
+                                display: "flex",
+                                justifyContent: "center",
+                                alignItems: "center",
+                              }}
+                            />
                           </button>
                         </div>
                       </div>
