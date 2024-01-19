@@ -120,6 +120,7 @@ const Datatable = () => {
     //     }
     //   });
   };
+  const handleDeleteSub = (id) => {};
   const handleEdit = (id) => {
     handleOpen(id);
     setIsEdit(true);
@@ -234,56 +235,6 @@ const Datatable = () => {
     setIsEdit(true);
     setViewSub(true);
   };
-  // const handleChange = (SelectChangeEvent) => {
-  //   // settab(SelectChangeEvent.target.value);
-  //   // var newArr = [];
-  //   // getAllUser()
-  //   //   .unwrap()
-  //   //   .then((payload) => {
-  //   //     if (payload.success === true) {
-  //   //       payload.data.map((val) => {
-  //   //         newArr.push({
-  //   //           id: val._id,
-  //   //           username: val.name,
-  //   //           img: "https://images.pexels.com/photos/1820770/pexels-photo-1820770.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
-  //   //           status: val.isActive ? "active" : "inactive",
-  //   //           email: val.email,
-  //   //           phone: val.phone,
-  //   //           role: val.role,
-  //   //           dbId: val._id,
-  //   //         });
-  //   //       });
-  //   //     }
-  //   //     if (SelectChangeEvent.target.value === 20) {
-  //   //       const arr = newArr.filter((val) => {
-  //   //         if (val.role === "customer") {
-  //   //           return val;
-  //   //         }
-  //   //       });
-  //   //       setData([]);
-  //   //       setData((prev) => [...prev, ...arr]);
-  //   //     } else if (SelectChangeEvent.target.value === 30) {
-  //   //       const arr = newArr.filter((val) => {
-  //   //         if (val.role === "company") {
-  //   //           return val;
-  //   //         }
-  //   //       });
-  //   //       setData([]);
-  //   //       setData((prev) => [...prev, ...arr]);
-  //   //     } else if (SelectChangeEvent.target.value === 40) {
-  //   //       const arr = newArr.filter((val) => {
-  //   //         if (val.role === "admin") {
-  //   //           return val;
-  //   //         }
-  //   //       });
-  //   //       setData([]);
-  //   //       setData((prev) => [...prev, ...arr]);
-  //   //     } else {
-  //   //       setData([]);
-  //   //       setData((prev) => [...prev, ...newArr]);
-  //   //     }
-  //   //   });
-  // };
   const actionColumn = [
     {
       field: "action",
@@ -294,12 +245,15 @@ const Datatable = () => {
         return (
           <div className="action">
             <div className="viewButton" onClick={() => handleView(params.row)}>
-              <CalendarViewMonthIcon fontSize="small" />
+              <CalendarViewMonthIcon
+                fontSize="small"
+                style={{ paddingTop: 5 }}
+              />
             </div>
             <div className="editButton" onClick={() => handleEdit(params.row)}>
-              <EditIcon fontSize="small" />
+              <EditIcon fontSize="small" style={{ paddingTop: 5 }} />
             </div>
-            {/* <Popconfirm
+            <Popconfirm
               title="DELETE ACCOUNT"
               description="Are you sure to delete?"
               onConfirm={() => handleDelete(params.row.id)}
@@ -308,9 +262,9 @@ const Datatable = () => {
               cancelText="No"
             >
               <div className="deleteButton">
-                <DeleteIcon fontSize="small" />
+                <DeleteIcon fontSize="small" style={{ paddingTop: 5 }} />
               </div>
-            </Popconfirm> */}
+            </Popconfirm>
           </div>
         );
       },
@@ -348,28 +302,31 @@ const Datatable = () => {
       headerAlign: "center",
       renderCell: (params) => {
         return (
-          <div className="cellAction">
+          <div className="action">
             <div className="viewButton" onClick={() => handleView(params.row)}>
-              <CalendarViewMonthIcon fontSize="small" />
+              <CalendarViewMonthIcon
+                fontSize="small"
+                style={{ paddingTop: 5 }}
+              />
             </div>
             <div
               className="editButton"
               onClick={() => handleEditSub(params.row)}
             >
-              <EditIcon fontSize="small" />
+              <EditIcon fontSize="small" style={{ paddingTop: 5 }} />
             </div>
-            {/* <Popconfirm
+            <Popconfirm
               title="DELETE ACCOUNT"
               description="Are you sure to delete?"
-              onConfirm={() => handleDelete(params.row.id)}
+              onConfirm={() => handleDeleteSub(params.row.id)}
               onCancel={cancelConfirm}
               okText="Yes"
               cancelText="No"
             >
               <div className="deleteButton">
-                <DeleteIcon fontSize="small" />
+                <DeleteIcon fontSize="small" style={{ paddingTop: 5 }} />
               </div>
-            </Popconfirm> */}
+            </Popconfirm>
           </div>
         );
       },

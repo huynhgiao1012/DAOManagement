@@ -63,13 +63,20 @@
   color: white;
   background-color: #196462;
   cursor: pointer;
-  margin-right: 10px;
 }
 .datatable .action .editButton {
-  padding: 2px 8px;
+  padding: 3px 8px;
   border-radius: 5px;
   color: white;
   background-color: #34acaf;
+  cursor: pointer;
+  margin: 0px 10px;
+}
+.datatable .action .deleteButton {
+  padding: 2px 8px;
+  border-radius: 5px;
+  color: white;
+  background-color: red;
   cursor: pointer;
   margin-right: 10px;
 }
@@ -92,5 +99,4 @@
   color: white;
   background-color: #34acaf;
   cursor: pointer;
-  margin-right: 10px;
 }/*# sourceMappingURL=style3.css.map */

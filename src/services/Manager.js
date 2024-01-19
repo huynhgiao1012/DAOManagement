@@ -218,6 +218,12 @@ export const managerApi = createApi({
         method: "DELETE",
       }),
     }),
+    deleteAccountant: builder.mutation({
+      query: ({ id }) => ({
+        url: `/deleteAccountant/${id}`,
+        method: "DELETE",
+      }),
+    }),
     deleteForm: builder.mutation({
       query: ({ id }) => ({
         url: `/deleteForm/${id}`,
@@ -259,4 +265,5 @@ export const {
   useGetCustomerMutation,
   useGetNumFormMutation,
   useResetMePointMutation,
+  useDeleteAccountantMutation,
 } = managerApi;

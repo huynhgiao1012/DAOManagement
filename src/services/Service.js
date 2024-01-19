@@ -56,7 +56,13 @@ export const serviceApi = createApi({
     }),
     deleteService: builder.mutation({
       query: ({ id }) => ({
-        url: `/${id}`,
+        url: `/deleteService/${id}`,
+        method: "DELETE",
+      }),
+    }),
+    deleteSubService: builder.mutation({
+      query: ({ id }) => ({
+        url: `/deleteSubService/${id}`,
         method: "DELETE",
       }),
     }),
@@ -71,4 +77,5 @@ export const {
   useAddServiceMutation,
   useDeleteServiceMutation,
   useUpdateServiceMutation,
+  useDeleteSubServiceMutation,
 } = serviceApi;

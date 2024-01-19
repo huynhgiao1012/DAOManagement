@@ -5,22 +5,8 @@ import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import {
   useGetAllAccountantMutation,
-  useGetAllEmployeeMutation,
-  useGetAllMechanicMutation,
-  useGetAllServiceMaMutation,
-  useGetEmergencyFormMutation,
-  useGetMaintenanceFormMutation,
-  useGetSubServiceMutation,
   useCreateAccountantAccountMutation,
-  useCreateEmergencyFormMutation,
-  useCreateMechanicAccountMutation,
-  useCreateServiceMutation,
-  useCreateSubServiceMutation,
-  useFormConfirmMutation,
-  useUpdateFormMutation,
-  useUpdateGarageMutation,
-  useUpdateIsVipMutation,
-  useDeleteMechanicMutation,
+  useDeleteAccountantMutation,
 } from "../../services/Manager";
 import { Col, Form, Input, Row, Drawer, Popconfirm, Radio } from "antd";
 import Box from "@mui/material/Box";
@@ -43,6 +29,7 @@ const Datatable = () => {
   const [data, setData] = useState([]);
   const [getAllAccountant] = useGetAllAccountantMutation();
   const [createAccountant] = useCreateAccountantAccountMutation();
+  const [deleteAccountant] = useDeleteAccountantMutation();
   const [isEdit, setIsEdit] = useState(false);
   const [form] = Form.useForm();
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -95,14 +82,14 @@ const Datatable = () => {
     console.log(e);
   };
   const handleDelete = async (id) => {
-    // await deleteMechanic({ id: id })
-    //   .unwrap()
-    //   .then((payload) => {
-    //     if (payload.success) {
-    //       <Alert severity="success">{payload.message}</Alert>;
-    //       loadData();
-    //     }
-    //   });
+    await deleteAccountant({ id: id })
+      .unwrap()
+      .then((payload) => {
+        if (payload.success) {
+          <Alert severity="success">{payload.message}</Alert>;
+          loadData();
+        }
+      });
   };
   const handleView = (data) => {
     handleOpen(data);
