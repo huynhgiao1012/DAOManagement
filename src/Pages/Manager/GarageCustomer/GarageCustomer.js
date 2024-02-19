@@ -19,11 +19,9 @@ const GarageCustomer = ({ socket }) => {
   const [numForm, setNum] = useState([]);
   useEffect(() => {
     setData([]);
-    console.log("hihi");
     getCustomer()
       .unwrap()
       .then((payload) => {
-        console.log("payload", payload.data);
         var newArr = [];
         payload.data.map((val) => {
           newArr.push({
